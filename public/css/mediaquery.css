@@ -1,0 +1,283 @@
+
+@media screen and (max-width: 768px) {
+    .profile-card-2{
+        height: 260px;
+        width: 175px;
+    }
+    .profile-card-2 .profile-name{
+        font-size: 21px;
+        left: 10px;
+        bottom: 30px;
+    }
+    .profile-card-2 .profile-username{
+        left: 10px;
+        bottom:5px ;
+        height: 25px;
+        align-items: center;
+        display: flex;
+    }
+    .profile-card-2 .profile-icons{
+      right: -15px;
+      bottom: 5px;
+    }
+    .profile-card-2 .profile-icons .bi {
+      margin-left: 30%;
+    }
+    .img-modal{
+      height: auto;
+      width: 100%;
+    }
+    .images-article{
+      display: flex;
+      flex-direction: column;
+    }
+    .menu{
+      display: none;
+    }
+    .menu-admin-responsive{
+      display: flex !important;
+      font-size: 35px;
+    }
+    .profile-admin{
+      height: auto;
+      width: 70px;
+    }
+    .col-10.content{
+      width: 100%;
+    }
+    .forme-img-ajout{
+      width: 250px;
+    }
+    .forme-img-ajout2{
+      max-width:100px ;
+    }
+    .form-style{
+      min-width: 290px;
+      max-width: 290px;
+
+    }
+
+
+}
+
+  @media screen and (max-width: 685px) {
+    .lnm{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .logo-animation {
+      margin-left: 10%;
+    }
+
+    .article-card-2{
+      height: 150px;
+      width: 100px;
+    }
+   .article-card-2 .profile-name {
+    display: none;
+    }
+    .article-card-2 .profile-icons {
+      top: 2px;
+      right: 10px;
+  }
+  .article-card-2 .profile-username {
+      bottom: 8px;
+      left: 10px;
+      font-size: 15px;
+  }
+    
+    .ligne.card-long{
+      display: block;
+    }
+    .article-card-long{
+      min-width: 180px;
+      width: 180px;
+      height: 550px;
+    }
+    .menu{
+      display: none;
+    }
+    .menu-button{
+      display: block;
+    }
+    .col-10.content{
+      border-radius: 0px;
+    }
+    .admindash-main-row{
+
+    }
+    .admin-form-img{
+      position: absolute;
+      width: 150px;
+      height: auto;
+      bottom: 1px;
+    }
+    .menu-admin-responsive{
+      display: flex !important;
+      font-size: 35px;
+    }
+    .bottom{
+      height: 80px;
+    }
+    .admin-product-search{
+      width: 40px;
+    }
+    .col-11.colone-10{
+      flex: 0 0 auto;
+      width: 85%;
+    }
+    .article-card-admin{
+      min-width:140px;
+      max-width: 140px;
+      max-height: 190px;
+      min-height: 190px;
+    }
+    
+    .article-card-admin .profile-name {
+      left: 5px;
+      bottom: 35px;
+      font-size: 20px;
+      color: #FFF;
+      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      transition: all linear 0.25s;
+    }
+    
+    .article-card-admin .profile-icons {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: #FFF;
+      transition: all linear 0.25s;
+      width: 100px;
+      text-align: center;
+    
+    }
+    
+    .article-card-admin .profile-username {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      font-size: 15px;
+      transition: all linear 0.25s;
+      border-radius: 8px;
+      padding: 4px;
+      width: auto;
+      text-align: center;
+      /* From https://css.glass */
+      background: rgba(0, 0, 0, 0.646);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+    .article-card-admin .profile-username .text {
+      font-size: 12px;
+    }
+    .article-card-admin:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+     transform: scale(1.1);
+     transition: 1s ease;
+     opacity:1;
+     border-color: #F48FB1;
+    }
+    .article-card-admin .profile-icons {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #000000;
+      transition: all linear 0.25s;
+      width: 100px;
+      text-align: center;
+      border-radius: 20px;
+      background-color: #ffffff;
+      max-width: 38px;
+      max-height: 18px;
+    }
+    .a-admin.ad {
+      font-size: 20px;
+      color: #000000;
+  }
+  .admin-first-row{
+    background-color: #ffffff;
+    height: 100%;
+  }
+  .section-admin{
+    height: 100%;
+  }
+
+}
+
+
+@media screen and (max-width: 650px){
+  .menu-admin-responsive{
+    display: flex !important;
+    font-size: 35px;
+
+  }
+
+}
+
+@media screen and (max-width: 435px) {
+    
+    .profile-card-2{
+        height: 230px;
+        width: 160px;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .profile-card-2 .profile-name{
+        font-size: 20px;
+        left: 10px;
+        bottom: 30px;
+    }
+    .profile-card-2 .profile-username{
+        left: 10px;
+        bottom:5px ;
+        height: 25px;
+        align-items: center;
+        display: flex;
+    }
+    
+    .profile-card-2 .profile-icons{
+        right: -15px;
+        bottom: 5px;
+    }
+    .middle .text {
+      padding: 5px 15px;
+  }
+  .add-product-button {
+    border: none!important;
+    border-radius: 100% !important;
+    left: 80%;
+    top: 85%;
+    width: 60px;
+    height:60px;
+    font-size: 30px;
+  }
+  .forme-img-ajout2{
+    overflow: hidden;
+    border-radius: 20px;
+    height: 125px;
+    max-height: 100%;
+    max-width:  100px;
+    border: 1px solid #000;
+    position: relative;
+  }
+
+
+}
+
+  @media screen and (max-width: 346px) {
+    .lnm{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .col.hamburger{
+      width: 8px!important;
+    }
+  
+  }

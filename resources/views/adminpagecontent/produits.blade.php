@@ -2,24 +2,25 @@
 @section('content')
 <section class="produit-dash">
     <a class="add-product-button" id="toggle-button"><i class="bi bi-plus" id="toggle-icon"></i></a>
-    <section class="add-board animate__animated animate__fadeIn">
+    <section class="add-board animate__animated animate__fadeIn ">
         <div class="admission-main-row">
             <a href="{{route('produits')}}"><i class="close bi bi-arrow-left-short"></i></a>
+            @if(session('success'))<div class="alert alert-success">{{ ('success') }}</div>@endif
             <h2>Ajout de nouvelle piece</h2>
             <p>Ajout de nouveau véhicule client</p>
-            <form class="form-style" method="POST" action="{{ route('admissionform') }}">
+            <form class="form-style" method="POST" action="{{ route('piecesform') }}"enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col d-flex flex-wrap justify-content-center align-items-center">
                         <div class="forme-img-ajout">
-                            <input class="input-image" type="file" name="image" id="mob" onblur="validate(4)">
+                            <input class="input-image" type="file" name="image" id="mob">
                             <img class="main-img-ajout"  id="uploadedImage" src="{{asset('media/add-img.png')}}" alt="">
                         </div>
-                        <input class="input-style-produits" name="nom_piece" type="text" placeholder="Nom de la piece..." value="{{ old('nom_client') }}">
+                        <input class="input-style-produits" name="nom_piece" type="text" placeholder="Nom de la piece..." value="{{ old('nom_piece') }}">
                         @error('nom_piece')<div class="text-danger">{{ $message }}</div>@enderror
-                        <input class="input-style-produits" name="prix_piece" type="text" placeholder="Prix de la piece..." value="{{ old('nom_voiture') }}">
+                        <input class="input-style-produits" name="prix_piece" type="text" placeholder="Prix de la piece..." value="{{ old('prix_piece') }}">
                         @error('prix_piece')<div class="text-danger">{{ $message }}</div>@enderror
-                        <input class="input-style-produits" name="type_piece" type="text" placeholder="le type de la piece..." value="{{ old('nom_voiture') }}">
+                        <input class="input-style-produits" name="type_piece" type="text" placeholder="le type de la piece..." value="{{ old('type_piece') }}">
                         @error('type_piece')<div class="text-danger">{{ $message }}</div>@enderror
                         <select class="select-cat-produits" id="Select1" name="fabricant">
                             <option style="text-align:center;" value="">--- Choisir le fabricant ---</option>
@@ -134,7 +135,8 @@
                 $epaisseur= $piece->epaisseur;
                 $poids= $piece->poids;
                 $quantite= $piece->qte;
-                $image = 'media/' . $piece->image;
+                $image = ('storage/app/').$piece->image;
+
                 @endphp
                 <div class="col">
                     <div class="article-card-admin">

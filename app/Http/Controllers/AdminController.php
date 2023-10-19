@@ -30,48 +30,39 @@ class AdminController extends Controller
     }
     public function piecesform(Request $request)
     {
-        // Validation des données du formulaire
-        $request->validate([
-            'nom_piece' => 'required|string',
-            'prix_piece' => 'required|numeric',
-            'type_piece' => 'required|string',
-            'fabricant' => 'required|string',
-            'long1' => 'numeric',
-            'long2' => 'numeric',
-            'large1' => 'numeric',
-            'large2' => 'numeric',
-            'diametre1' => 'numeric',
-            'diametre2' => 'numeric',
-            'hauteur' => 'numeric',
-            'epaisseur' => 'numeric',
-            'poids' => 'numeric',
-            'quantite' => 'numeric',
-            'image' => 'image|mimes:jpg,png,webp|max:2048',
-        ]);
+        // $request->validate([
+        //     'nom_piece' => 'required|string',
+        //     'prix_piece' => 'required|numeric',
+        //     'type_piece' => 'required|string',
+        //     'fabricant' => 'required|string',
+        //     'quantite' => 'numeric',
+        //     'image' => 'image|mimes:jpg,png,webp|max:2048',
+        // ]);
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+            $uploadedFile = $request->file('image');
+            $imagePath = $uploadedFile->storeAs('public/images', $uploadedFile->getClientOriginalName());
         } else {
             $imagePath = null;
-        }
+        }        
 
         $piece = new Pieces;
-        $piece->nom_piece = $request->input('nom_piece');
-        $piece->prix_piece = $request->input('prix_piece');
-        $piece->type_piece = $request->input('type_piece');
-        $piece->fabricant = $request->input('fabricant');
-        $piece->long1 = $request->input('long1');
-        $piece->long2 = $request->input('long2');
-        $piece->large1 = $request->input('large1');
-        $piece->large2 = $request->input('large2');
-        $piece->diametre1 = $request->input('diametre1');
-        $piece->diametre2 = $request->input('diametre2');
+        $piece->piece_nom = $request->input('nom_piece');
+        $piece->piece_prix = $request->input('prix_piece');
+        $piece->piece_categorie = $request->input('type_piece');
+        $piece->piece_fabricant = $request->input('fabricant');
+        $piece->longueur_1 = $request->input('long1');
+        $piece->longueur_2 = $request->input('long2');
+        $piece->largeur_1 = $request->input('large1');
+        $piece->largeur_2 = $request->input('large2');
+        $piece->diametre_1 = $request->input('diametre1');
+        $piece->diametre_2 = $request->input('diametre2');
         $piece->hauteur = $request->input('hauteur');
         $piece->epaisseur = $request->input('epaisseur');
         $piece->poids = $request->input('poids');
-        $piece->quantite = $request->input('quantite');
+        $piece->qte = $request->input('quantite');
         $piece->image = $imagePath;
         $piece->save();
-        
+        $request->session()->flash('success', 'Article ajouté avec succès');
         $pieces = Pieces::orderBy('piece_id', 'DESC')->get();
         $compagnies = compagnie::all();
         return view('adminpagecontent.produits',compact('pieces','compagnies'));

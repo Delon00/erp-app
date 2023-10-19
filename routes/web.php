@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ActionController;
 use App\Http\Controllers\AdminController;
-
+use Illuminate\Support\Facades\Storage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +24,17 @@ Route::get('/js/{filename}', function ($filename) {
 Route::get('/media/{filename}', function ($filename) {
     return response()->file(public_path('media/' . $filename));
 });
+Route::get('/images/{filename}', function ($filename) {
+    return response()->file(public_path('images/' . $filename));
+});
+
+
+
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+
 
 
 

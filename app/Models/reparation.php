@@ -13,19 +13,19 @@ class reparation extends Model
 
     protected $appends = ['temps_restant'];
 
-    public function getTempsRestantAttribute()
-    {
-        $dateAjout = $this->date_ajout;
-        $dateEstimee = $this->date_estimee;
-        return $dateAjout->diffInMinutes($dateEstimee);
-    }
-    public function getNbrePanneRestantAttribute()
-    {
-        return $this->nbre_panne - $this->nbre_panne_traite;
-    }
-    public function getMontantAttribute()
-    {
-        return $this->montant_total - $this->montant_paye;
-    }
+    // public function getTempsRestantAttribute()
+    // {
+    //     $dateAjout = $this->date_ajout;
+    //     $dateEstimee = $this->date_estimee;
+    //     return $dateAjout->diffInMinutes($dateEstimee);
+    // }
+    // public function getNbrePanneRestantAttribute()
+    // {
+    //     return $this->nbre_panne - $this->nbre_panne_traite;
+    // }
+    // public function getMontantAttribute()
+    // {
+    //     return $this->montant_total - $this->montant_paye;
+    // }
 
 }

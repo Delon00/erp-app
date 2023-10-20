@@ -27,6 +27,10 @@
                         @endforeach
                     </select>
                     @error('marque')<div class="text-danger">{{ $message }}</div>@enderror
+                    <input class="input-style" name="serie" type="text" placeholder="Serie du véhicule..." value="{{ old('serie') }}">
+                    @error('serie')<div class="text-danger">{{ $message }}</div>@enderror
+                    <input class="input-style" name="plaque" type="text" placeholder="Plaque d'imatriculation..." value="{{ old('plaque') }}">
+                    @error('plaque')<div class="text-danger">{{ $message }}</div>@enderror
                     <input class="input-style" name="panne" type="text" placeholder="Panne..." value="{{ old('panne') }}">
                     @error('panne')
                     <div class="text-danger">{{ $message }}</div>
@@ -78,6 +82,7 @@
                 $panne = strlen($admission->panne_declare) > 14 ? substr($admission->panne_declare, 0, 10) . '...' : $admission->panne_declare;
                 $create = $admission->created_at;
                 $update = $admission->updated_at;
+                
             @endphp
                <div class="row admission-list-row">
                     <div class="col">{{$nom_client}}</div>

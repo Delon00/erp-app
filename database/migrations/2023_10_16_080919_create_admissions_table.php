@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('admissions', function (Blueprint $table) {
             $table->id('add_id');
-            $table->string('nom_client')->unique();
             $table->string('nom_voiture');
             $table->string('marque_voiture'); 
+            $table->string('serie_voiture'); 
+            $table->string('plaque'); 
             $table->string('panne_declare');
             $table->timestamps();
-        
+
             $table->foreign('marque_voiture')->references('marque_voiture')->on('marques'); 
         });
+
     }
 
     /**

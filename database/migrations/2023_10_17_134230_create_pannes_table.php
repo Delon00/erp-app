@@ -16,8 +16,6 @@ return new class extends Migration
     {
         Schema::create('pannes', function (Blueprint $table) {
             $table->id('pannes_id');
-            $table->string('nom_client');
-            $table->string('nom_voiture');
             $table->string('nom_panne');
             $table->integer('delay_estime');
             $table->integer('temps_restant');

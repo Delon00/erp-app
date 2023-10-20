@@ -52,11 +52,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/diagnostic', [AdminController::class, 'diagnostic'])->name('diagnostic')->middleware('disable.back.btn');
     Route::get('/reparation', [AdminController::class, 'reparation'])->name('reparation')->middleware('disable.back.btn');
 
+
     Route::post('/admissionform', [AdminController::class, 'admissionform'])->name('admissionform');
     Route::post('/piecesform', [AdminController::class, 'piecesform'])->name('piecesform');
     Route::post('/diag', [AdminController::class, 'diag'])->name('diag');
     Route::post('/register', [AuthController::class, 'register'])->name('register');
-
 });
 
 

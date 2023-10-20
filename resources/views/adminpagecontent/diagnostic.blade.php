@@ -8,29 +8,22 @@
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
-            <h2>Admission de véhicules</h2>
-            <p>Ajout de nouveau véhicule client</p>
-
+            <h2>Nouveau diagnostic</h2>
+            <p>Ajout d'un nouveau diagnostic</p>
             <form class="form-style" method="POST" action="{{ route('admissionform') }}">
                 @csrf
-                    <input class="input-style" name="nom_client" type="text" placeholder="Nom du client..." value="{{ old('nom_client') }}">
-                    @error('nom_client')<div class="text-danger">{{ $message }}</div>@enderror
-                    <input class="input-style" name="nom_voiture" type="text" placeholder="Nom du véhicule..." value="{{ old('nom_voiture') }}">
-                    @error('nom_voiture')<div class="text-danger">{{ $message }}</div>@enderror
-                    <select class="select-cat" id="Select1" name="marque">
-                        <option style="text-align:center;" value="">--- Choisir la marque du véhicule ---</option>
-                        @foreach ($marques as $marque)
-                            <option value="{{ $marque->marque_voiture }}" {{ old('marque') == $marque->marque_voiture ? 'selected' : '' }}>
-                                {{ $marque->marque_voiture }}
-                                <img src="{{ asset('media/' . $marque->logo_marque) }}" alt="{{ $marque->marque_voiture }}">
+                    <select class="select-cat" id="Select1" name="proprietaire">
+                        <option style="text-align:center;" value="">--- Choisir le proprietaire du véhicule ---</option>
+                        @foreach ($clients as $client)
+                            <option value="{{ $client->nom_client}}">
+                                {{ $client->nom_client }}
                             </option>
                         @endforeach
                     </select>
-                    @error('marque')<div class="text-danger">{{ $message }}</div>@enderror
-                    <input class="input-style" name="panne" type="text" placeholder="Panne..." value="{{ old('panne') }}">
-                    @error('panne')
-                    <div class="text-danger">{{ $message }}</div>
-                    @enderror
+                    @error('proprietaire')<div class="text-danger">{{ $message }}</div>@enderror
+
+                    <input class="input-style" name="nombre_panne" type="number" placeholder="Nombre de panne...">
+                    @error('nombre_panne')<div class="text-danger">{{ $message }}</div>@enderror
                 <button class="btn-style" type="submit">Enregistrer <i class="bi bi-floppy"></i></button>
                 <script>
                     var toggleButton = document.getElementById('toggle-button');
@@ -65,8 +58,7 @@
             <div class="row">
                 <div class="col "><h5>Nom du client</h5></div>
                 <div class="col "><h5>Nom du véhicules</h5></div>
-                <div class="col"><h5>Marque du véhicule </h5></div>
-                <div class="col "><h5>Panne</h5></div>
+                <div class="col "><h5>Nbre Panne</h5></div>
                 <div class="col "><h5>Crée le</h5></div>
                 <div class="col "><h5>Modifié le</h5></div>
             </div>

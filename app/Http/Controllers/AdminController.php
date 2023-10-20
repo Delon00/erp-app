@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\admissions_client;
 use App\Models\compagnie;
 use App\Models\diagnostic;
 use App\Models\marque;
@@ -86,11 +87,17 @@ class AdminController extends Controller
 
     public function admission(Request $request)
     {
-        $marques = Marque::get();
-        $admissions = Admission::orderBy('created_at', 'desc')->get();
+        $marques = Marque::all();
+        $clients = Clients::all();
+        $admissions = Admission::select('admissions.*', 'clients.nom_client as client_name')
+        ->join('admissions_clients', 'admissions.add_id', '=', 'admissions_clients.add_id')
+        ->join('clients', 'admissions_clients.client_id', '=', 'clients.client_id')
+        ->orderBy('admissions.created_at', 'desc')
+        ->get();
+    
 
         
-        return view('adminpagecontent.admission', compact('marques', 'admissions'));
+        return view('adminpagecontent.admission', compact('marques', 'admissions','clients'));
     }
     
     public function admissionform(Request $request)
@@ -102,14 +109,17 @@ class AdminController extends Controller
                             if (Clients::where('nom_client', $value)->exists())
                             {$fail(trans('validation.client_exists'));}},],
             'nom_voiture' => 'required|string',
+            'serie' => 'required|string',
+            'plaque' => 'required|string',
             'marque' => 'required|string',
             'panne' => 'required|string',
         ]);
 
         $admission = new Admission;
-        $admission->nom_client = $request->input('nom_client');
         $admission->nom_voiture = $request->input('nom_voiture');
         $admission->marque_voiture = $request->input('marque');
+        $admission->serie_voiture = $request->input('serie');
+        $admission-> plaque= $request->input('plaque');
         $admission->panne_declare = $request->input('panne');
         $admission->save();
         
@@ -117,8 +127,14 @@ class AdminController extends Controller
         $client ->nom_client = $request->input('nom_client');
         $client->save();
 
+
+        $admissions_client = new Admissions_client;
+        $admissions_client->add_id = $admission->id;
+        $admissions_client->client_id = $client->id;
+        $admissions_client->save();
+
         $admissions = Admission::orderBy('created_at', 'desc')->get();
-        $marques = Marque::get();
+        $marques = Marque::all();
         return view('adminpagecontent.admission', compact('marques', 'admissions'))
         ->with('success', 'Ajout réussi.');
     }
@@ -126,8 +142,10 @@ class AdminController extends Controller
 
     public function diagnostic(Request $request)
     {
-        $diag = Diagnostic::orderBy('created_at', 'desc')->get();
-        return view('adminpagecontent.diagnostic', compact('diag'));
+        $diags = Diagnostic::orderBy('created_at', 'desc')->get();
+        $marques = Marque::all();
+        $clients = Clients::all('nom_client');
+        return view('adminpagecontent.diagnostic', compact('diags','marques','clients'));
     }
     public function diag(Request $request)
     {

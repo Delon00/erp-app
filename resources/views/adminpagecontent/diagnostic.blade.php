@@ -10,7 +10,7 @@
             @endif
             <h2>Nouveau diagnostic</h2>
             <p>Ajout d'un nouveau diagnostic</p>
-            <form class="form-style" method="POST" action="{{ route('admissionform') }}">
+            <form class="form-style" method="POST" action="{{ route('diag') }}">
                 @csrf
                     <select class="select-cat" id="Select1" name="proprietaire">
                         <option style="text-align:center;" value="">--- Choisir le proprietaire du véhicule ---</option>

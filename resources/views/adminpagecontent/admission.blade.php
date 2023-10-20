@@ -76,7 +76,7 @@
             
             @foreach ($admissions as $admission)
             @php
-                $nom_client = strlen($admission->nom_client) > 14 ? substr($admission->nom_client, 0, 11) . '...' : $admission->nom_client;
+                $nom_client = strlen($admission->client_name) > 14 ? substr($admission->client_name, 0, 11) . '...' : $admission->client_name;
                 $nom_voiture = $admission->nom_voiture;
                 $marque = $admission->marque_voiture;
                 $panne = strlen($admission->panne_declare) > 14 ? substr($admission->panne_declare, 0, 10) . '...' : $admission->panne_declare;

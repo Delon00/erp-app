@@ -108,7 +108,6 @@ class AdminController extends Controller
                             function ($attribute, $value, $fail) {
                             if (Clients::where('nom_client', $value)->exists())
                             {$fail(trans('validation.client_exists'));}},],
-            'nom_voiture' => 'required|string',
             'serie' => 'required|string',
             'plaque' => 'required|string',
             'marque' => 'required|string',
@@ -132,11 +131,7 @@ class AdminController extends Controller
         $admissions_client->add_id = $admission->id;
         $admissions_client->client_id = $client->id;
         $admissions_client->save();
-
-        $admissions = Admission::orderBy('created_at', 'desc')->get();
-        $marques = Marque::all();
-        return view('adminpagecontent.admission', compact('marques', 'admissions'))
-        ->with('success', 'Ajout réussi.');
+        return redirect()->route('admission');
     }
 
 
@@ -149,8 +144,29 @@ class AdminController extends Controller
     }
     public function diag(Request $request)
     {
-        $diags = Diagnostic::orderBy('created_at', 'desc')->get();
-        return view('adminpagecontent.diagnostic', compact('diags'));
+
+    $request->validate([
+        'proprietaire' => 'required',
+        'nombre_panne'=> 'required',
+    ]);
+
+
+    $nomProprietaire = $request->input('proprietaire');
+    $admissionClient = Admissions_client::whereHas('client', function ($query) use ($nomProprietaire) {
+    $query->where('nom_client', $nomProprietaire);
+    })->first();
+
+    if ($admissionClient) {
+        $addId = $admissionClient->add_id;
+        $diags = new Diagnostic;
+        $diags->nom_client = $request->input('proprietaire');
+        $diags->nmbre_panne = $request->input('nombre_panne');
+
+        return redirect()->route('diagnostic');
+    } else {
+        return back()->with('error', 'Propriétaire non trouvé.');
+    }
+
     }
 
     

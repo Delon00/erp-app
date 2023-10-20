@@ -24,9 +24,7 @@ Route::get('/js/{filename}', function ($filename) {
 Route::get('/media/{filename}', function ($filename) {
     return response()->file(public_path('media/' . $filename));
 });
-Route::get('/images/{filename}', function ($filename) {
-    return response()->file(public_path('images/' . $filename));
-});
+
 
 
 

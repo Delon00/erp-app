@@ -135,7 +135,8 @@
                 $epaisseur= $piece->epaisseur;
                 $poids= $piece->poids;
                 $quantite= $piece->qte;
-                $image = ('storage/app/').$piece->image;
+                $image = ('Storage/').$piece->image;
+
 
                 @endphp
                 <div class="col">

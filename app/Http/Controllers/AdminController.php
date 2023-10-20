@@ -30,17 +30,17 @@ class AdminController extends Controller
     }
     public function piecesform(Request $request)
     {
-        // $request->validate([
-        //     'nom_piece' => 'required|string',
-        //     'prix_piece' => 'required|numeric',
-        //     'type_piece' => 'required|string',
-        //     'fabricant' => 'required|string',
-        //     'quantite' => 'numeric',
-        //     'image' => 'image|mimes:jpg,png,webp|max:2048',
-        // ]);
+        $request->validate([
+            'nom_piece' => 'required|string',
+            'prix_piece' => 'required|numeric',
+            'type_piece' => 'required|string',
+            'fabricant' => 'required|string',
+            'quantite' => 'numeric',
+            'image' => 'image|mimes:jpg,png,webp|max:2048',
+        ]);
         if ($request->hasFile('image')) {
             $uploadedFile = $request->file('image');
-            $imagePath = $uploadedFile->storeAs('public/images', $uploadedFile->getClientOriginalName());
+            $imagePath = $uploadedFile->store('images','public');
         } else {
             $imagePath = null;
         }        

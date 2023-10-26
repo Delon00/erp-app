@@ -8,8 +8,8 @@
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
-            <h2>Nouveau diagnostic</h2>
-            <p>Ajout d'un nouveau diagnostic</p>
+            <h2>Nouveau clients</h2>
+            <p>Ajout d'un nouveau client</p>
             <form class="form-style" method="POST" action="{{ route('clientform') }}">
                 @csrf
                     <select class="select-cat" id="Select1" name="nom_client">

@@ -32,7 +32,7 @@
                 <h3 class="text-center px-0 py-0 mx-0 my-0">+{{$diag}}<p class="text-center total-text px-0 py-0 mx-0 my-0">Diagnostic</p></h3>
             </a>
             <div class="row justify-content-center align-items-center total fav">
-                <h3 class="text-center px-0 py-0 mx-0 my-0">+4<p class="text-center total-text px-0 py-0 mx-0 my-0">Réparé</p></h3>
+                <h3 class="text-center px-0 py-0 mx-0 my-0">+0<p class="text-center total-text px-0 py-0 mx-0 my-0">Réparé</p></h3>
             </div>
         </div>
         <h4 class="margin-l-1">Pieces</h4>

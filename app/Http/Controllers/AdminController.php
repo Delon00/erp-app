@@ -191,8 +191,15 @@ class AdminController extends Controller
     }
     public function reparation(Request $request)
     {   
-        
-        return view('adminpagecontent.reparation', compact(''));
+        $clients = Clients::all();
+        return view('adminpagecontent.reparation', compact('clients'));
+    }
+
+
+    public function reparationform(Request $request)
+    {   
+
+        return redirect()->route('reparation');
     }
     
 }

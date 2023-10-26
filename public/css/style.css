@@ -1351,6 +1351,17 @@ color:#F48FB1;
   background-color: #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+.progression-card-reparation{
+  width: 90%;
+  padding: 2%;
+  max-height: 140px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.progression-card-reparation .valeur-form{
+  width: 80%;
+}
 progress{
   width: 100%;
   -webkit-appearance: none;

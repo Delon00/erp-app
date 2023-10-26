@@ -39,7 +39,7 @@
             Othmane <br/><span style="color:#ed1c24">auto</span>
           </h1>
           <p class="mb-4 opacity-70" style="color: white">
-            Connectez-vous et reprenez vos tâches de gestion de garage automobile comme si vous n'aviez jamais quitté.
+            Connectez-vous et reprenez vos tâches au sein d'Othmane auto comme si vous n'aviez jamais quitté.
           </p>
         </div>
         <div class="col-lg-6 mb-5 mb-lg-0 position-relative">

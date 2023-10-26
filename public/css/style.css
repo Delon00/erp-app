@@ -350,7 +350,7 @@ width: 600px;
       bottom: 60px;
       font-size: 23px;
       color: #FFF;
-      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
       font-weight: bold;
       transition: all linear 0.25s;
   }
@@ -973,7 +973,7 @@ width: 600px;
   font-size: 18px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
   color: #FFF;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
   font-weight: bold;
   transition: all linear 0.25s;
 }
@@ -1244,7 +1244,7 @@ color:#F48FB1;
   bottom: 60px;
   font-size: 23px;
   color: #FFF;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
   font-weight: bold;
   transition: all linear 0.25s;
 }
@@ -1277,6 +1277,7 @@ color:#F48FB1;
   font-size: 20px;
   transition: all linear 0.25s;
   color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
 }
 
 .vente-recent-form .profile-icons .bi{

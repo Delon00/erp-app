@@ -59,8 +59,9 @@
             <div class="row admin-products">
             <div class="row">
                 <div class="col "><h5>Nom du client</h5></div>
-                <div class="col "><h5>Nom du véhicules</h5></div>
-                <div class="col "><h5>Nbre Panne</h5></div>
+                <div class="col "><h5>No CIN</h5></div>
+                <div class="col "><h5>Numéro </h5></div>
+                <div class="col "><h5>Mail </h5></div>
                 <div class="col "><h5>Crée le</h5></div>
                 <div class="col "><h5>Modifié le</h5></div>
             </div>
@@ -68,8 +69,7 @@
             @foreach ($clients as $client)
             @php
                 $nom_client = $client->nom_client;
-                $nom_voiture = $client->nom_voiture;
-                $cin = $client->marque_voiture;
+                $cin = $client->num_cin;
                 $tel = $client->num_tel;
                 $mail = $client->mail;
                 $create = $client->created_at;
@@ -77,7 +77,6 @@
             @endphp
                <div class="row admission-list-row">
                     <div class="col">{{$nom_client}}</div>
-                    <div class="col">{{$nom_voiture}}</div>
                     <div class="col">{{$cin}}</div>
                     <div class="col">{{$tel}}</div>
                     <div class="col">{{$mail}}</div>

@@ -9,7 +9,7 @@ class clients extends Model
 {
     use HasFactory;
 
-
+    protected $primaryKey = 'client_id';
     protected $fillable = [
         'client_id',
         'nom_client',

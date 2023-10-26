@@ -16,7 +16,7 @@
                 <div class="row align-items-center">
                     <div class="col-8">
                         <div class="row"><h3>Beau travail !</h3></div>
-                        <div class="row"><p>Vous avez eu plus de {{$clientcount}} réparation au cours des deux dernière semaine </p></div>
+                        <div class="row"><p>Vous avez déja réaliser <span style="font-weight:bold;">{{$diag}}</span>  diagnostic au cours de cette semaine </p></div>
                     </div>
                     <div class="col-3">
                         <img class="admin-form-img" src="{{asset('media/admin-form.png')}}" alt="">
@@ -28,10 +28,9 @@
             <a href="{{route('admission')}}" class="text-decoration-none row justify-content-center align-items-center total fav">
                 <h3 class="text-center px-0 py-0 mx-0 my-0">+{{ $admissionsCount }}<p class="total-text text-center px-0 py-0 mx-0 my-0">Admission</p></h3>
             </a>
-            <div class="row justify-content-center align-items-center total fav">
+            <a href="{{route('diagnostic')}}" class="text-decoration-none row justify-content-center align-items-center total fav">
                 <h3 class="text-center px-0 py-0 mx-0 my-0">+{{$diag}}<p class="text-center total-text px-0 py-0 mx-0 my-0">Diagnostic</p></h3>
-                
-            </div>
+            </a>
             <div class="row justify-content-center align-items-center total fav">
                 <h3 class="text-center px-0 py-0 mx-0 my-0">+4<p class="text-center total-text px-0 py-0 mx-0 my-0">Réparé</p></h3>
             </div>
@@ -39,9 +38,9 @@
         <h4 class="margin-l-1">Pieces</h4>
         <div class="ligne vente-recent">
             <div class="vente-recent-form">
-                <img src="{{asset('media/filtre-air.jpg')}}" class="img img-responsive ">
-                <div class="profile-name">Plaquette</div>
-                <div class="profile-username"><div class="text"> 12 disponible</div></div>
+                <img src="{{ asset($image) }}"  class="img img-responsive ">
+                <div class="profile-name">{{$piecesnom}}</div>
+                <div class="profile-username"><div class="text">{{$piecesqte}} disponible</div></div>
             </div>
             <div class="vente-recent-form-droite">
                 <div class="ligne">

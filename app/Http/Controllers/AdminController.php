@@ -21,7 +21,11 @@ class AdminController extends Controller
         $diag = diagnostic::count();
         $admissionsCount = Admission::count();
         $nomvehicule = Admission::pluck('nom_voiture');
-        return view('adminpagecontent.admindash', compact('clients','admissionsCount','clientcount','nomvehicule','diag'));
+        $pieces = Pieces::latest('created_at')->first();
+        $piecesqte = $pieces->qte;
+        $piecesnom = $pieces->piece_nom;
+        $image = ('Storage/').$pieces->image;
+        return view('adminpagecontent.admindash', compact('clients','piecesnom','image','pieces','piecesqte','admissionsCount','clientcount','nomvehicule','diag'));
     }
     public function ContentProduits()
     {
@@ -78,22 +82,24 @@ class AdminController extends Controller
         $clients = Clients::all();
         return view('adminpagecontent.commande',compact('clients'));
     }
-    public function Clientform(request $request)
-    {   
+    public function Clientform(Request $request)
+    {
         $request->validate([
-
             'cin' => 'required|string',
             'tel' => 'required|string',
             'mail' => 'required|string',
+            'nom_client' => 'required|string',
         ]);
-
+        
         $nom_client = $request->input('nom_client');
-        $admission = Admission::where('nom_client', $nom_client)->first();
-        $client = new Clients;
-        $client ->nom_client = $request->input('nom_client');
+        $client = Clients::where('client_id', $nom_client)->first();
+        $client->num_cin = $request->input('cin');
+        $client->num_tel = $request->input('tel');
+        $client->mail = $request->input('mail');
         $client->save();
-        return redirect()->route('Commande');
+        return redirect()->route('commande');
     }
+    
     public function ContentReview()
     {
         return view('adminpagecontent.review');
@@ -112,9 +118,6 @@ class AdminController extends Controller
         ->join('clients', 'admissions_clients.client_id', '=', 'clients.client_id')
         ->orderBy('admissions.created_at', 'desc')
         ->get();
-    
-
-        
         return view('adminpagecontent.admission', compact('marques', 'admissions','clients'));
     }
     
@@ -186,7 +189,11 @@ class AdminController extends Controller
             $diags->save();
             return redirect()->route('diagnostic');
     }
-
+    public function reparation(Request $request)
+    {   
+        
+        return view('adminpagecontent.reparation', compact(''));
+    }
     
 }
 

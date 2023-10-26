@@ -33,15 +33,15 @@
                 
             </div>
             <div class="row justify-content-center align-items-center total fav">
-                <h3 class="text-center px-0 py-0 mx-0 my-0">+70K<p class="text-center total-text px-0 py-0 mx-0 my-0">Réparé</p></h3>
+                <h3 class="text-center px-0 py-0 mx-0 my-0">+4<p class="text-center total-text px-0 py-0 mx-0 my-0">Réparé</p></h3>
             </div>
         </div>
-        <h5 class="margin-l-1">Vente recentes</h5>
+        <h4 class="margin-l-1">Pieces</h4>
         <div class="ligne vente-recent">
             <div class="vente-recent-form">
-                <img src="{{asset('media/art18c.jpg')}}" class="img img-responsive ">
+                <img src="{{asset('media/filtre-air.jpg')}}" class="img img-responsive ">
                 <div class="profile-name">Plaquette</div>
-                <div class="profile-username"><div class="text"> 749K Disponible</div></div>
+                <div class="profile-username"><div class="text"> 12 disponible</div></div>
             </div>
             <div class="vente-recent-form-droite">
                 <div class="ligne">
@@ -52,11 +52,11 @@
                     <div class="categorie-vente">
                         <div class="margin-4">
                             <div class="row">
-                                <p style="font-size:18px;font-weight:bold; color:#fff">Catégorie hommes</p>
+                                <p style="font-size:18px;font-weight:bold; color:#fff">Cat. cartouche</p>
                             </div>
                             <div class="row">
-                                <div class="col-7"><p style="color:#fff" class="text-start">3756 articles</p></div>
-                                <div class="col-5"><p style="color:#fff" class="text-end">37,5 M</p></div>
+                                <div class="col-7"><p style="color:#fff" class="text-start">37 pieces</p></div>
+                                <div class="col-5"><p style="color:#fff" class="text-end">5k Dh</p></div>
                             </div>
                         </div>
                     </div>
@@ -92,8 +92,8 @@
                     <div class="progression-card">
                         <div class="margin-3">
                             <div class="ligne">
-                                <h6 class="float-left">Revenue total</h6>
-                                <h6  class="float-right">25,9 M</h6>
+                                <h6 class="float-left">Temps écoulé:</h6>
+                                <h6  class="float-right">0.1h</h6>
                             </div>
                             <div class="progress-bar">
                                 <div class="padding-2">
@@ -101,9 +101,9 @@
                                 </div>
                             </div>
                             <div class="ligne">
-                                <p class="float-left"><i class="bi bi-basket2-fill"></i>  1790 commandes</p>
+                                <p class="float-left"><i class="bi bi-wrench"></i>  1 Panne restante</p>
                             <div class="float-right-50">
-                                <div class="valeur-form ligne "><i class="bi bi-graph-up-arrow"></i> 17%</div> 
+                                <div class="valeur-form ligne "> En cours</div> 
                             </div>
                         </div>
                     </div>
@@ -114,8 +114,8 @@
                 <div class="progression-card">
                     <div class="margin-3">
                         <div class="ligne">
-                            <h6 class="float-left">Revenue total</h6>
-                            <h6  class="float-right">25,9 M</h6>
+                        <h6 class="float-left">Temps écoulé:</h6>
+                            <h6  class="float-right">22h</h6>
                         </div>
                         <div class="progress-bar">
                         <div class="padding-2">
@@ -123,9 +123,9 @@
                         </div>
                     </div>
                     <div class="ligne">
-                        <p class="float-left"><i class="bi bi-basket2-fill"></i>  1790 commandes</p>
+                        <p class="float-left"><i class="bi bi-wrench"></i>  1 Panne restante</p>
                         <div class="float-right-50">
-                            <div class="valeur-form ligne "><i class="bi bi-graph-up-arrow"></i> 17%</div> 
+                        <div class="valeur-form ligne "> En cours</div> 
                         </div>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                 <div class="progression-card">
                     <div class="margin-3">
                         <div class="ligne">
-                            <h6 class="float-left">Revenue total</h6>
-                            <h6  class="float-right">25,9 M</h6>
+                            <h6 class="float-left">Temps écoulé:</h6>
+                            <h6  class="float-right">2h</h6>
                         </div>
                         <div class="progress-bar">
                             <div class="padding-2">
@@ -145,9 +145,9 @@
                             </div>
                         </div>
                         <div class="ligne">
-                            <p class="float-left"><i class="bi bi-basket2-fill"></i>  1790 commandes</p>
+                            <p class="float-left"><i class="bi bi-wrench"></i>  2 Pannes restante</p>
                             <div class="float-right-50">
-                                <div class="valeur-form ligne "><i class="bi bi-graph-up-arrow"></i> 17%</div> 
+                            <div class="valeur-form ligne "> En cours</div> 
                             </div>
                         </div>
                     </div>

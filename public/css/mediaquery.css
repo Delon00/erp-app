@@ -44,6 +44,7 @@
     }
     .col-10.content{
       width: 100%;
+      display: block;
     }
     .forme-img-ajout{
       width: 250px;

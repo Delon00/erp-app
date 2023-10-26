@@ -12,15 +12,13 @@
             <p>Ajout d'un nouveau diagnostic</p>
             <form class="form-style" method="POST" action="{{ route('diag') }}">
                 @csrf
-                    <select class="select-cat" id="Select1" name="proprietaire">
-                        <option style="text-align:center;" value="">--- Choisir le proprietaire du véhicule ---</option>
-                        @foreach ($clients as $client)
-                            <option value="{{ $client->nom_client}}">
-                                {{ $client->nom_client }}
-                            </option>
+                    <select class="select-cat" id="Select1" name="plaque">
+                        <option style="text-align:center;" value="">--- Choisir la plaque du vehicule ---</option>
+                        @foreach ($admissions as $admission) 
+                        <option value="{{ $admission->plaque}}" >{{ $admission->plaque }}</option>
                         @endforeach
                     </select>
-                    @error('proprietaire')<div class="text-danger">{{ $message }}</div>@enderror
+                    @error('mom_vehicule')<div class="text-danger">{{ $message }}</div>@enderror
 
                     <input class="input-style" name="nombre_panne" type="number" placeholder="Nombre de panne...">
                     @error('nombre_panne')<div class="text-danger">{{ $message }}</div>@enderror
@@ -65,12 +63,12 @@
             
             @foreach ($diags as $diag)
             @php
-                $nom_client = $admission->nom_client;
-                $nom_voiture = $admission->nom_voiture;
-                $marque = $admission->marque_voiture;
-                $panne = $admission->panne_declare;
-                $create = $admission->created_at;
-                $update = $admission->updated_at;
+                $nom_client = $diag->nom_client;
+                $nom_voiture = $diag->nom_voiture;
+                $marque = $diag->marque_voiture;
+                $panne = $diag->nmbre_panne;
+                $create = $diag->created_at;
+                $update = $diag->updated_at;
             @endphp
                <div class="row admission-list-row">
                     <div class="col">{{$nom_client}}</div>

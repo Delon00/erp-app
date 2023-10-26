@@ -1064,6 +1064,7 @@ color:#F48FB1;
   background-color: #ffffff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   height: 100%;
+
 }
 .menu{
   background-color: #223f5d;
@@ -1365,7 +1366,7 @@ progress::-webkit-progress-value {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .valeur-form{
-  width: 70px;
+  width: 80px;
   height: 25px;
   border-radius: 25px;
   background-color: #71f286d2;

@@ -70,11 +70,29 @@ class AdminController extends Controller
     }
     public function ContentClients()
     {   
+        
         return view('adminpagecontent.clients' );
     }
     public function ContentCommande()
-    {
-        return view('adminpagecontent.commande');
+    {   
+        $clients = Clients::all();
+        return view('adminpagecontent.commande',compact('clients'));
+    }
+    public function Clientform(request $request)
+    {   
+        $request->validate([
+
+            'cin' => 'required|string',
+            'tel' => 'required|string',
+            'mail' => 'required|string',
+        ]);
+
+        $nom_client = $request->input('nom_client');
+        $admission = Admission::where('nom_client', $nom_client)->first();
+        $client = new Clients;
+        $client ->nom_client = $request->input('nom_client');
+        $client->save();
+        return redirect()->route('Commande');
     }
     public function ContentReview()
     {
@@ -137,36 +155,36 @@ class AdminController extends Controller
 
     public function diagnostic(Request $request)
     {
+
         $diags = Diagnostic::orderBy('created_at', 'desc')->get();
         $marques = Marque::all();
-        $clients = Clients::all('nom_client');
-        return view('adminpagecontent.diagnostic', compact('diags','marques','clients'));
+        $clients = Clients::all();
+        $admissions = Admission::all();
+        $nomProprietaire = $request->input('proprietaire');
+
+
+        return view('adminpagecontent.diagnostic', compact('diags','marques','clients','admissions'));
     }
     public function diag(Request $request)
     {
 
-    $request->validate([
-        'proprietaire' => 'required',
-        'nombre_panne'=> 'required',
-    ]);
+            $plaque = $request->input('plaque');
+
+            $admission = Admission::where('plaque', $plaque)->first();
+            $nom_voiture = $admission->nom_voiture;
+            $add_id = $admission->add_id;
+            $admissionsClients = Admissions_client::where('add_id', $add_id)->first();
+            $client_id = $admissionsClients->client_id;
+            $client = Clients::where('client_id', $client_id)->first();
+            $nom_client = $client->nom_client;
 
 
-    $nomProprietaire = $request->input('proprietaire');
-    $admissionClient = Admissions_client::whereHas('client', function ($query) use ($nomProprietaire) {
-    $query->where('nom_client', $nomProprietaire);
-    })->first();
-
-    if ($admissionClient) {
-        $addId = $admissionClient->add_id;
-        $diags = new Diagnostic;
-        $diags->nom_client = $request->input('proprietaire');
-        $diags->nmbre_panne = $request->input('nombre_panne');
-
-        return redirect()->route('diagnostic');
-    } else {
-        return back()->with('error', 'Propriétaire non trouvé.');
-    }
-
+            $diags = new Diagnostic;
+            $diags->nmbre_panne = $request->input('nombre_panne');
+            $diags->nom_voiture = $nom_voiture;
+            $diags->nom_client = $nom_client;
+            $diags->save();
+            return redirect()->route('diagnostic');
     }
 
     

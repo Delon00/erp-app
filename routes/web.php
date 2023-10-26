@@ -55,6 +55,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/admissionform', [AdminController::class, 'admissionform'])->name('admissionform');
     Route::post('/piecesform', [AdminController::class, 'piecesform'])->name('piecesform');
+    Route::post('/clientform', [AdminController::class, 'clientform'])->name('clientform');
     Route::post('/diag', [AdminController::class, 'diag'])->name('diag');
     Route::post('/register', [AuthController::class, 'register'])->name('register');
 });
